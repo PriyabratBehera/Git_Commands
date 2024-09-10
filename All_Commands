@@ -162,17 +162,18 @@ To save and exit:
 Press Esc to exit insert mode.
 Type :wq and press Enter to save and quit
 
-
-
-
-
-
 Fetching and Pulling
 =====================
 git fetch remote
 git fetch
 git pull
 git branch -r (To view the remote branch our local repositpry know about)
+
+
+Clone repository
+================
+git clone --branch developer  git@bitbucket.org:floatrapp/mobileappv2.git (clone from a perticular branch)
+
 
 
 

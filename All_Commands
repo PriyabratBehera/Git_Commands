@@ -1,0 +1,184 @@
+
+Git log
+========
+git log --oneline
+git log
+
+Fixing mistake with Amend
+==========================
+git add filename1
+git commit -m "first commit"
+git add filename2
+git commit --amend
+
+Ignoring Files
+===============
+Create a .gitignore file in root directory
+
+ View Branches
+===============
+git Branch
+
+Create Branch
+=============
+git branch <branch-name>
+
+Switch branch
+=============
+git switch <branch-name>
+git checkout <branch-name>
+
+Create and Switching
+=====================
+git switch -c <branch-name>
+git checkout -b <branch-name>
+
+Note:
+Before switching to another branch or pull, first you should git add . and git commit.
+
+
+Deleting and Renaming the branch
+=================================
+git branch -d <branch-name>
+git branch -m <branch-name> (rename the branch)
+
+Merging
+=======
+
+git merge <branch-name>
+Note: We always merge to the current head branch
+
+Git Diff
+========
+git diff branch1..branch2 (This will show you the changes in branch2 that are not in branch1.)
+git diff branch1..branch2 -- <file_path> (To check the difference for a specific file between two branches)
+git diff branch2 (This will show changes in branch2 that are not in your current branch.)
+
+OR
+==
+git checkout branch1
+git diff branch2
+
+Comparing two commit
+=====================
+git diff commit1..commit2
+
+Git Stashing
+============
+git stash temporarily saves (or "stashes") changes in your working directory that are not ready to be committed, allowing you to switch branches or perform other tasks without losing your work.
+The stashed changes are saved in a stack, and you can later apply them back when needed.
+Temporarily saving changes before switching branches or pulling the latest changes from the remote.
+
+git stash (Save your changes: both staged and unstaged)
+git stash list (List your stashes:)
+git stash apply (Apply the most recent stash:)
+git stash pop (Apply and remove the most recent stash)
+git stash apply stash@{n} (Apply a specific stash:)  [First run git stash list, then you will get stash@{n} index then apply]
+git stash drop stash{n} (To delete a perticular stash)
+git stash clear (to delete all)
+
+Git Restore
+============
+git restore is used to discard changes in your working directory
+Undoing changes in one or more specific files that you don’t want to keep.
+
+git restore <file_name>  (Restore a specific file to the last committed state:)
+git restore --source=<commit_hash> <file_name> (Restore a file to a specific commit:)
+git restore --staged <file_name> (Unstage a file)
+git restore . (Restore all changes in the working directory to the last committed state:)
+
+
+git checkout <commit-code>
+git checkout HEAD~1 (undoing changes)
+
+Reatching detached head
+========================
+If you got "HEAD detached at" then 
+-> first create a branch 
+-> Then switch to another nranch
+
+OR
+git swich master/main
+
+Undo the Commit but Keep the Changes in the Working Directory
+==============================================================
+git reset --soft HEAD~1
+git reset --soft <commit-hash>
+
+Undo the Commit and Unstage the Changes
+========================================
+git reset HEAD~1
+git reset <commit-hash>
+
+Undo the Commit and Remove the Changes
+======================================
+git reset --hard HEAD~1
+git reset --hard <commit-hash>
+
+Undo git add but Keep Changes
+=============================
+git reset
+
+Undo the Commit and Push (Remote Repository)
+=============================================
+git reset --soft HEAD~1
+git push -f
+
+Note: When you do undo any commit after you should do forceful push
+
+Check the Remote URL
+====================
+git remote -v
+
+Undo a perticular commit and push code from remote repository
+=============================================================
+git log (Find a commit stash)
+git revert <commit_hash> (Revert the commit)
+git push origin <branch-name> --force
+
+Another way
+===========
+->git rebase -i HEAD~2
+->Then you will get pick 2e0db9753a432df3b1a0e3b5c226def76145b594 Commit message for yesterday's commit
+pick d52210a5bd030914cd2ad234121bbe912b017134 Commit message for today's commit
+->Then you have change pick to drop, which one you want to revert
+->git push origin <branch_name> --force
+
+Using Nano (Simple Command-Line Editor)
+=======================================
+To modify the line: Use the arrow keys to navigate to the line you want to change.
+Change pick to drop.
+After editing, to save and exit:
+Press CTRL + X.
+Press Y to confirm saving changes.
+Press Enter to confirm the file name.
+
+Using Vim (More Advanced Command-Line Editor)
+=============================================
+To enter edit mode: Navigate to the line you want to modify using the arrow keys.
+Press i to enter insert mode and edit the text.
+Change pick to drop.
+To save and exit:
+Press Esc to exit insert mode.
+Type :wq and press Enter to save and quit
+
+
+
+
+
+
+Fetching and Pulling
+=====================
+git fetch remote
+git fetch
+git pull
+git branch -r (To view the remote branch our local repositpry know about)
+
+
+
+
+
+
+
+
+
